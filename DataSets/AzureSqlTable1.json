@@ -1,0 +1,40 @@
+{
+	"name": "AzureSqlTable1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LinkedServiceAzureSQLData",
+			"type": "LinkedServiceReference"
+		},
+		"type": "AzureSqlTable",
+		"structure": [
+			{
+				"name": "Brand",
+				"type": "String"
+			},
+			{
+				"name": "Fuel",
+				"type": "String"
+			},
+			{
+				"name": "Type",
+				"type": "String"
+			},
+			{
+				"name": "Wheel",
+				"type": "String"
+			},
+			{
+				"name": "Seater",
+				"type": "String"
+			},
+			{
+				"name": "Price",
+				"type": "String"
+			}
+		],
+		"typeProperties": {
+			"tableName": "[dbo].[Cars]"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

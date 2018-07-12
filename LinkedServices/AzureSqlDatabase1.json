@@ -1,0 +1,16 @@
+{
+    "name": "AzureSqlDatabase2",
+    "properties": {
+        "type": "AzureSqlDatabase",
+        "typeProperties": {
+            "connectionString": {
+                "type": "AzureKeyVaultSecret",
+                "store": {
+                    "referenceName": "LinkedServiceKeyVault",
+                    "type": "LinkedServiceReference"
+                },
+                "secretName": "mykey"
+            }
+        }
+    }
+}

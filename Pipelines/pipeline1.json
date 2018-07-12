@@ -1,0 +1,79 @@
+{
+	"name": "pipeline1",
+	"properties": {
+		"activities": [
+			{
+				"name": "DbCluster",
+				"type": "DatabricksNotebook",
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false
+				},
+				"typeProperties": {
+					"notebookPath": "/ADFV2Demo/pynote"
+				},
+				"linkedServiceName": {
+					"referenceName": "LinkedServiceAzureDataBriks",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "sqlCopy",
+				"type": "Copy",
+				"dependsOn": [
+					{
+						"activity": "DbCluster",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false
+				},
+				"typeProperties": {
+					"source": {
+						"type": "BlobSource",
+						"recursive": true
+					},
+					"sink": {
+						"type": "SqlSink",
+						"writeBatchSize": 10000
+					},
+					"enableStaging": false,
+					"enableSkipIncompatibleRow": true,
+					"dataIntegrationUnits": 0,
+					"translator": {
+						"type": "TabularTranslator",
+						"columnMappings": {
+							"Prop_0": "Brand",
+							"Prop_1": "Fuel",
+							"Prop_2": "Type",
+							"Prop_3": "Wheel",
+							"Prop_4": "Seater",
+							"Prop_5": "Price"
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "BlobDataSet",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "SQLDataSet",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}
