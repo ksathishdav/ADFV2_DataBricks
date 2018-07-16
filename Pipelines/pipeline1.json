@@ -15,7 +15,7 @@
 					"notebookPath": "/ADFV2Demo/pynote"
 				},
 				"linkedServiceName": {
-					"referenceName": "LinkedServiceAzureDataBriks",
+					"referenceName": "AzureDatabricksCluster",
 					"type": "LinkedServiceReference"
 				}
 			},
@@ -62,13 +62,13 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "BlobDataSet",
+						"referenceName": "AzureBlob1",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "SQLDataSet",
+						"referenceName": "AzureSqlTable1",
 						"type": "DatasetReference"
 					}
 				]
