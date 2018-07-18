@@ -12,7 +12,7 @@
         ], 
         "type": "BlobEventsTrigger",
         "typeProperties": {
-            "blobPathEndsWith": "'/source/input/'",
+            "blobPathEndsWith": "'/source/rawdata/'",
             "scope": "/subscriptions/2558e6f8-2629-4dc1-a821-27dafdd462f7/resourceGroups/m1032513AdfPoc/providers/Microsoft.Storage/storageAccounts/mydbstgv2",
             "events": [
                 "Microsoft.Storage.BlobCreated"
