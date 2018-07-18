@@ -9,7 +9,7 @@
 					"referenceName": "LinkedServiceKeyVault",
 					"type": "LinkedServiceReference"
 				},
-				"secretName": "AutomobileStorage"
+				"secretName": "NewStorageV2"
 			}
 		}
 	},
