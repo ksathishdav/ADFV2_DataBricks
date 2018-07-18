@@ -39,7 +39,7 @@
 				"firstRowAsHeader": false
 			},
 			"fileName": "*.csv",
-			"folderPath": "source/input/output"
+			"folderPath": "source/rawdata/output"
 		}
 	},
 	"type": "Microsoft.DataFactory/factories/datasets"
