@@ -1,0 +1,68 @@
+{
+    "name": "pipeline2",
+    "properties": {
+        "activities": [
+            {
+                "name": "DbCluster",
+                "type": "DatabricksNotebook",
+                "policy": {
+                    "timeout": "7.00:00:00",
+                    "retry": 0,
+                    "retryIntervalInSeconds": 30,
+                    "secureOutput": false
+                },
+                "typeProperties": {
+                    "notebookPath": "/ADFV2Demo/pynote"
+                },
+                "linkedServiceName": {
+                    "referenceName": "AzureDatabricksCluster",
+                    "type": "LinkedServiceReference"
+                }
+            },
+            {
+                "name": "sqlCopy",
+                "type": "Copy",
+                "dependsOn": [
+                    {
+                        "activity": "DbCluster",
+                        "dependencyConditions": [
+                            "Succeeded"
+                        ]
+                    }
+                ],
+                "policy": {
+                    "timeout": "7.00:00:00",
+                    "retry": 0,
+                    "retryIntervalInSeconds": 30,
+                    "secureOutput": false
+                },
+                "typeProperties": {
+                    "source": {
+                        "type": "BlobSource",
+                        "recursive": true
+                    },
+                    "sink": {
+                        "type": "SqlSink",
+                        "writeBatchSize": 10000
+                    },
+                    "enableStaging": false,
+                    "enableSkipIncompatibleRow": true,
+                    "dataIntegrationUnits": 0
+                },
+                "inputs": [
+                    {
+                        "referenceName": "AzureBlob1",
+                        "type": "DatasetReference"
+                    }
+                ],
+                "outputs": [
+                    {
+                        "referenceName": "AzureSqlTable1",
+                        "type": "DatasetReference"
+                    }
+                ]
+            }
+        ]
+    },
+    "type": "Microsoft.DataFactory/factories/pipelines"
+}
