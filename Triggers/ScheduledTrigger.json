@@ -1,0 +1,23 @@
+{
+    "name": "ScheduleTrigger",
+    "properties": {
+        "runtimeState": "Started",
+		"pipelines": [
+            {
+                "pipelineReference": {
+                    "referenceName": "pipeline1",
+                    "type": "PipelineReference"
+                }
+            }
+        ], 
+        "type": "ScheduleTrigger",
+        "typeProperties": {
+            "recurrence": {
+                "frequency": "Minute",
+                "interval": 30,
+                "startTime": "2018-07-18T08:58:00.000Z",
+                "timeZone": "UTC"
+            }
+        }
+    }
+}
