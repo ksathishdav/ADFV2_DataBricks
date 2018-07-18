@@ -26,10 +26,6 @@
 			{
 				"name": "Prop_4",
 				"type": "String"
-			},
-			{
-				"name": "Prop_5",
-				"type": "String"
 			}
 		],
 		"typeProperties": {

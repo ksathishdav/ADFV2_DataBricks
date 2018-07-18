@@ -26,10 +26,6 @@
 			{
 				"name": "Seater",
 				"type": "String"
-			},
-			{
-				"name": "Price",
-				"type": "String"
 			}
 		],
 		"typeProperties": {
