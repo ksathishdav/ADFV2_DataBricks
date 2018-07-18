@@ -1,7 +1,7 @@
 {
     "name": "ScheduleTrigger",
     "properties": {
-        "runtimeState": "Started",
+        "runtimeState": "Stopped",
 		"pipelines": [
             {
                 "pipelineReference": {
